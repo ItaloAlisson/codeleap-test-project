@@ -8,9 +8,12 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import uk.co.codeleap.careers.dtos.EditPostDTO;
 import uk.co.codeleap.careers.dtos.NetworkPostDTO;
 import uk.co.codeleap.careers.models.NetworkPost;
 import uk.co.codeleap.careers.services.NetworkPostService;
+
+import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/careers")
@@ -34,5 +37,10 @@ public class NetworkPostController {
             sort = "createdDatetime", direction = Sort.Direction.ASC) Pageable page){
         return ResponseEntity.status(HttpStatus.OK)
                 .body(postService.findAllPosts(page));
+    }
+    @PatchMapping("/{id}")
+    public ResponseEntity<Void> editPost(@PathVariable(value = "id") Integer id, @RequestBody @Valid EditPostDTO postDTO){
+        postService.editPost(id,postDTO);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }
