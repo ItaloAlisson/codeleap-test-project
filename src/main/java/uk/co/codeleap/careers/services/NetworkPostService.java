@@ -39,4 +39,11 @@ public class NetworkPostService {
         postRepository.save(post);
 
     }
+
+    public void removePost(Integer id){
+        var post = postRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Post with ID " + id
+                        + " was not found."));
+        postRepository.delete(post);
+    }
 }

@@ -43,4 +43,10 @@ public class NetworkPostController {
         postService.editPost(id,postDTO);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> removePost(@PathVariable(value = "id") Integer id){
+        postService.removePost(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }
