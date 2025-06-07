@@ -1,5 +1,8 @@
 package uk.co.codeleap.careers.services;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import uk.co.codeleap.careers.dtos.NetworkPostRecordDTO;
 import uk.co.codeleap.careers.mappers.NetworkPostMapper;
@@ -20,5 +23,9 @@ public class NetworkPostService {
     public NetworkPost createPost(NetworkPostRecordDTO postDTO) {
         var post = postMapper.toNetworkPost(postDTO);
         return postRepository.save(post);
+    }
+
+    public Page<NetworkPost> findAllPosts(Pageable page) {
+        return postRepository.findAll(page);
     }
 }
