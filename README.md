@@ -7,7 +7,6 @@ This is an API for the CodeLeap test, developed with Java 17 and Spring Boot. Th
 - **Java 17**
 - **Spring Boot 3.5.0**
 - **Maven**
-- **Lombok** for code simplification
 - **SpringBoot DevTools** for faster development
 - **Spring Data JPA** for database integration
 - **PostgreSQL** as the relational database
