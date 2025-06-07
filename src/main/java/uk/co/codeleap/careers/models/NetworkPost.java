@@ -39,6 +39,14 @@ public class NetworkPost implements Serializable {
         this.content = content;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getUserName() {
         return userName;
     }
