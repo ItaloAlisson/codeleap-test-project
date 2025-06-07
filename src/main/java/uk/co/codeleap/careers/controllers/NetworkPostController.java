@@ -8,7 +8,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import uk.co.codeleap.careers.dtos.NetworkPostRecordDTO;
+import uk.co.codeleap.careers.dtos.NetworkPostDTO;
 import uk.co.codeleap.careers.models.NetworkPost;
 import uk.co.codeleap.careers.services.NetworkPostService;
 
@@ -23,7 +23,7 @@ public class NetworkPostController {
     }
 
     @PostMapping()
-    public ResponseEntity<NetworkPost> createPost(@RequestBody @Valid NetworkPostRecordDTO postDTO){
+    public ResponseEntity<NetworkPost> createPost(@RequestBody @Valid NetworkPostDTO postDTO){
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(postService.createPost(postDTO));
 
