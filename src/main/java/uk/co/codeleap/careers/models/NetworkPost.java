@@ -1,20 +1,13 @@
 package uk.co.codeleap.careers.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity()
 @Table(name = "POSTS")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class NetworkPost implements Serializable {
     private static final long serialversionUID = 1L;
 
@@ -35,5 +28,38 @@ public class NetworkPost implements Serializable {
         this.createdDatetime = LocalDateTime.now();
     }
 
+    public NetworkPost() {
+    }
 
+    public NetworkPost(Integer id, String userName, LocalDateTime createdDatetime, String title, String content) {
+        this.id = id;
+        this.userName = userName;
+        this.createdDatetime = createdDatetime;
+        this.title = title;
+        this.content = content;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 }
